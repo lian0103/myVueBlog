@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    {{msg}}
+    <p>{{msg}}</p>
+  </div>
 </template>
 
 <script>
