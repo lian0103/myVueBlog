@@ -5,7 +5,8 @@
       <p class="align-middle p-1 lh80">{{title}}</p>
     </div>
     <div class="infoMenu">
-      <i class="far fa-compass"></i><span class="p-1">contact</span> 
+      <p class="p-1"><i class="far fa-compass"></i>by Jason Lien</p>
+      <p class="p-1"><i class="far fa-envelope"></i>k1319900103@gmail.com</p>
     </div>
   </div>
 </template>
@@ -39,10 +40,10 @@ export default {
 .infoMenu{
   position: absolute;
   top: 25px;
-  right: 10%;
+  right: 20px;
   font-size: 1rem;
   color: #444;
-  cursor: pointer;
+  text-align: left;
 }
 .lh80{
   line-height: 80px;

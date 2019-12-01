@@ -5,7 +5,8 @@
       <div class="first">
         <img :src="firstImg" alt />
         <h3>{{firstTitle}}</h3>
-        <p v-if="firstTxt!=''" v-html="firstTxt"></p>
+        <p v-if="firstTxt!=''" :class="{txtMore:isTxtMore}"  v-html="firstTxt"></p>
+        <div class="flex justify-end"><button class="inline-block bg-blue-500 hover:bg-blue-500 text-white py-1 px-2 rounded-full" @click="txtMore">{{strMore}}</button></div>
         <div class="pills">
           <a target="_blank" :href="firstLink" v-if="firstLink!=''">#連結</a>
           <span>{{firstCratetime}}</span>
@@ -36,7 +37,9 @@ export default {
       firstTxt: rowdata[0].txt,
       firstLink: rowdata[0].relateLink,
       firstCratetime: "#" + rowdata[0].cratetime,
-      rowdata: rowdata
+      rowdata: rowdata,
+      isTxtMore:false,
+      strMore:"more",
     };
   },
   name: "carditem",
@@ -49,6 +52,10 @@ export default {
       this.firstTxt = rowdata[index].txt;
       this.firstLink = rowdata[index].relateLink;
       this.firstCratetime = "#" + rowdata[index].cratetime;
+    },
+    txtMore:function(){
+      this.isTxtMore = !this.isTxtMore;
+      this.strMore = this.isTxtMore ? "less":"more";
     }
   }
 };
@@ -97,6 +104,12 @@ export default {
   font-size: 1.25rem;
   margin: 0.5rem 0;
 }
+
+.first p{
+  max-height: 85px;
+  overflow: hidden;
+}
+
 .pills {
   padding: 0.5rem;
 }
@@ -118,4 +131,13 @@ export default {
   padding: 0px 0.5rem;
   cursor: pointer;
 }
+
+.txtMore{
+  max-height: 550px !important;
+}
+
+button:focus{
+	outline: transparent;
+}
+
 </style>
