@@ -5,7 +5,7 @@
       <p class="align-middle p-1 lh80">{{title}}</p>
     </div>
     <div class="infoMenu">
-      <i class="far fa-compass"></i><span class="p-1">menu</span> 
+      <i class="far fa-compass"></i><span class="p-1">contact</span> 
     </div>
   </div>
 </template>
@@ -34,7 +34,6 @@ export default {
   flex-basis: 85px;
   flex-grow: 0;
   flex-shrink: 0;
-  background-color: rgb(247, 218, 140);
   position: relative;
 }
 .infoMenu{

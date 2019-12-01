@@ -1,0 +1,21 @@
+{
+    "cardtopic":"學習紀錄",
+    "rowdata":[
+        {
+            "id":1,
+            "title":"使用githubPage&vue cli建立部落個網頁",
+            "cratetime":"2019-11-30",
+            "txt":"1.透過github創建專案 <br> 2.透過vue create '專案' <br>  3. 使用vue開發頁面組件 <br> 4.local透過npm run build打包成可部署的檔案  <br>  5.推送至github <br> ",
+            "img":"https://s1.imgs.cc/img/aaaaaUva6.png",
+            "relateLink":"https://pages.github.com/"
+        },
+        {
+            "id":2,
+            "title":"vue組建引用圖片資源tips",
+            "cratetime":"2019-12-01",
+            "txt":"由於開發初期尚未有後端提供圖檔資源，可先取用網路上免費的分享服務<br>1.至該網頁先上傳圖片<br>2.複製最下方html使用的圖檔src即可使用<br>",
+            "img":"https://s1.imgs.cc/img/aaaaaUutg.png",
+            "relateLink":"http://imgs.cc/index.php"
+        }
+    ]
+}

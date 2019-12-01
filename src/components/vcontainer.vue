@@ -1,14 +1,15 @@
 <template>
   <div class="vcontainer">
-    
+    <carditem></carditem>
   </div>
 </template>
 
 <script>
+import carditem from './vitems/carditem.vue'
 export default {
   name: "vcontainer",
-  props: {
-    msg: String
+  components: {
+    carditem
   }
 };
 </script>
@@ -23,6 +24,5 @@ export default {
   flex-basis: 75vh;
   flex-grow: 1;
   flex-shrink: 0;
-  background-color: rgba(247, 234, 205, 0.7);
 }
 </style>

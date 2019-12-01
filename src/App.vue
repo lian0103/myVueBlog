@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :style="{backgroundImage: 'url(' + headImg + ')' }">
+  <div id="app">
     <vinfo></vinfo>
     <vcontainer></vcontainer>
   </div>
@@ -8,12 +8,11 @@
 <script>
 import vinfo from "./components/vinfo.vue";
 import vcontainer from "./components/vcontainer.vue";
-import headImg from "./assets/img/wrapper.jpg";
 
 export default {
   data() {
     return {
-      headImg: headImg
+
     };
   },
   name: "app",
@@ -33,8 +32,13 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-content: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: .1em;
 }
 </style>
