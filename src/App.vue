@@ -41,4 +41,11 @@ export default {
   line-height: 1.2;
   letter-spacing: .1em;
 }
+
+@media only screen and (max-width: 767px){
+  #app {
+    overflow: hidden;
+  }
+}
+
 </style>

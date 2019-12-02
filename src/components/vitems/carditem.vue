@@ -5,8 +5,8 @@
       <div class="first">
         <img :src="firstImg" alt />
         <h3>{{firstTitle}}</h3>
-        <p v-if="firstTxt!=''" :class="{txtMore:isTxtMore}"  v-html="firstTxt"></p>
-        <div class="flex justify-end"><button class="inline-block bg-blue-500 hover:bg-blue-500 text-white py-1 px-2 rounded-full" @click="txtMore">{{strMore}}</button></div>
+        <p v-if="firstTxt!=''" :class="{txtMore:isTxtMore}" v-html="firstTxt"></p>
+        <!-- <div class="flex justify-end"><button class="inline-block bg-blue-500 hover:bg-blue-500 text-white py-1 px-2 rounded-full" @click="txtMore">{{strMore}}</button></div> -->
         <div class="pills">
           <a target="_blank" :href="firstLink" v-if="firstLink!=''">#連結</a>
           <span>{{firstCratetime}}</span>
@@ -17,8 +17,12 @@
           <li @click="swithItem(item.id)" v-bind:key="item.id" v-for="item in rowdata">
             {{item.title}}
             <p>{{item.cratetime}}</p>
+            <span v-html="item.icon"></span>
           </li>
         </ul>
+        <div class="spansbox">
+          <span v-bind:key="item.id" v-for="item in dataTags" v-html="item.Icon+item.name"></span>
+        </div>
       </div>
     </div>
   </div>
@@ -26,10 +30,37 @@
 
 <script>
 import workdata from "../../modelData/work.json";
+import lifedata from "../../modelData/life.json";
 export default {
   data() {
-    var dataObj = workdata;
-    var rowdata = workdata.rowdata;
+    var dataObj;
+    var rowdata;
+    switch (this.dataTarget) {
+      case "work": {
+        dataObj = workdata;
+        rowdata = workdata.rowdata;
+        break;
+      }
+      case "life": {
+        dataObj = lifedata;
+        rowdata = lifedata.rowdata;
+        break;
+      }
+    }
+    //icon處理
+
+    for (let i = 0; i < rowdata.length; i++) {
+      var tagsArr = rowdata[i].tags;
+      var icons = "";
+      for (let k = 0; k < tagsArr.length; k++) {
+        for (let j = 0; j < dataObj.tags.length; j++) {
+          if (tagsArr[k] == dataObj.tags[j].name) {
+            icons += dataObj.tags[j].Icon;
+          }
+        }
+      }
+      rowdata[i].icon = icons;
+    }
     return {
       cardtopic: dataObj.cardtopic,
       firstImg: rowdata[0].img,
@@ -38,14 +69,28 @@ export default {
       firstLink: rowdata[0].relateLink,
       firstCratetime: "#" + rowdata[0].cratetime,
       rowdata: rowdata,
-      isTxtMore:false,
-      strMore:"more",
+      isTxtMore: false,
+      strMore: "more",
+      dataTags: dataObj.tags
     };
   },
   name: "carditem",
+  props: {
+    dataTarget: String
+  },
   methods: {
     swithItem: function(id) {
-      var rowdata = workdata.rowdata;
+      var rowdata;
+      switch (this.dataTarget) {
+        case "work": {
+          rowdata = workdata.rowdata;
+          break;
+        }
+        case "life": {
+          rowdata = lifedata.rowdata;
+          break;
+        }
+      }
       var index = parseInt(id) - 1;
       this.firstImg = rowdata[index].img;
       this.firstTitle = rowdata[index].title;
@@ -53,9 +98,9 @@ export default {
       this.firstLink = rowdata[index].relateLink;
       this.firstCratetime = "#" + rowdata[index].cratetime;
     },
-    txtMore:function(){
+    txtMore: function() {
       this.isTxtMore = !this.isTxtMore;
-      this.strMore = this.isTxtMore ? "less":"more";
+      this.strMore = this.isTxtMore ? "less" : "more";
     }
   }
 };
@@ -87,6 +132,20 @@ export default {
 .others {
   flex-basis: 35%;
   flex-grow: 1;
+  position: relative;
+}
+
+.spansbox {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  display: flex;
+}
+
+.spansbox span {
+  padding: 0.25rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .carditem h2 {
@@ -105,9 +164,11 @@ export default {
   margin: 0.5rem 0;
 }
 
-.first p{
-  max-height: 85px;
-  overflow: hidden;
+.first p {
+  /* max-height: 85px;
+  overflow: hidden; */
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .pills {
@@ -130,14 +191,33 @@ export default {
   margin-bottom: 0.5rem;
   padding: 0px 0.5rem;
   cursor: pointer;
+  font-size: 1rem;
 }
 
-.txtMore{
+/* .txtMore{
   max-height: 550px !important;
+} */
+
+button:focus {
+  outline: transparent;
 }
 
-button:focus{
-	outline: transparent;
+@media only screen and (max-width: 767px) {
+  .carditem {
+    width: 100%;
+    overflow: hidden;
+    padding: 0.5rem;
+  }
+  .maincontent {
+    flex-direction: column;
+    padding-bottom: 30px;
+  }
+  .spansbox {
+    bottom: -20px;
+  }
+  .first img {
+    max-width: 20rem;
+    padding: 10px 0;
+  }
 }
-
 </style>

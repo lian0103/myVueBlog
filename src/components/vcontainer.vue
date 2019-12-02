@@ -1,6 +1,7 @@
 <template>
   <div class="vcontainer">
-    <carditem></carditem>
+    <carditem dataTarget="work"></carditem>
+    <carditem dataTarget="life"></carditem>
   </div>
 </template>
 

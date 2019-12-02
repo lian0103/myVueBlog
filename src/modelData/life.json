@@ -1,0 +1,33 @@
+{
+  "cardtopic": "生活紀錄",
+  "rowdata": [{
+    "id": 1,
+    "title": "82年生的金智英",
+    "cratetime": "2019-12-02",
+    "txt": "小說改編，題材有關於韓國重男輕女的家庭觀念與職場歧視。<br>觀後感，溫馨感人",
+    "img": "https://s1.imgs.cc/img/aaaaaUBZJ.jpg",
+    "relateLink": "https://www.youtube.com/watch?v=INXcDv3ZD1c",
+    "tags": ["movie"]
+  }],
+  "tags": [{
+      "id": 1,
+      "name": "sport",
+      "Icon": "<i class='fas fa-running'></i>"
+    },
+    {
+      "id": 2,
+      "name": "foods",
+      "Icon": "<i class='fas fa-utensils'></i>"
+    },
+    {
+      "id": 3,
+      "name": "movie",
+      "Icon": "<i class='fas fa-film'></i>"
+    },
+    {
+      "id": 4,
+      "name": "music",
+      "Icon": "<i class='fas fa-music'></i>"
+    }
+  ]
+}

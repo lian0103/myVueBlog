@@ -1,6 +1,6 @@
 <template>
-  <div class="vinfo shadow-inner flex justify-center">
-    <div class="flex text-center">
+  <div class="vinfo">
+    <div class="logo">
       <img :src="catImg" alt="" class="h-16 w-16 rounded-full p-1">
       <p class="align-middle p-1 lh80">{{title}}</p>
     </div>
@@ -36,7 +36,17 @@ export default {
   flex-grow: 0;
   flex-shrink: 0;
   position: relative;
+  box-shadow: inset 0 2px 4px 0 rgba(0,0,0,.06);
+  display: flex;
+  justify-content: center;
 }
+
+.logo{
+  display: flex;
+  text-align: center;
+  padding: .25rem;
+}
+
 .infoMenu{
   position: absolute;
   top: 25px;
@@ -48,4 +58,23 @@ export default {
 .lh80{
   line-height: 80px;
 }
+
+@media only screen and (max-width: 767px){
+  .vinfo {
+    max-width: 100vw;
+    flex-basis: 65px;
+    justify-content: flex-start;
+  }
+  .infoMenu{
+    position: absolute;
+    font-size: .7rem;
+  }
+  .logo{
+    padding: .5rem;
+  }
+  .lh80{
+    line-height: 60px;
+  }
+}
+
 </style>
