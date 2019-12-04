@@ -20,9 +20,9 @@
             <span v-html="item.icon"></span>
           </li>
         </ul>
-        <div class="spansbox">
-          <span v-bind:key="item.id" v-for="item in dataTags" v-html="item.Icon+item.name"></span>
-        </div>
+      </div>
+      <div class="spansbox">
+        <span v-bind:key="item.id" v-for="item in dataTags" v-html="item.Icon+item.name"></span>
       </div>
     </div>
   </div>
@@ -112,6 +112,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   padding: 1.25rem;
+  opacity: 1;
 }
 .maincontent {
   display: flex;
@@ -122,6 +123,7 @@ export default {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   text-align: left;
+  position: relative;
 }
 
 .first {
@@ -133,6 +135,9 @@ export default {
   flex-basis: 35%;
   flex-grow: 1;
   position: relative;
+  max-height: 350px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .spansbox {
@@ -213,7 +218,7 @@ button:focus {
     padding-bottom: 30px;
   }
   .spansbox {
-    bottom: -20px;
+    bottom: 5px;
   }
   .first img {
     max-width: 20rem;

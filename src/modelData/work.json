@@ -27,6 +27,15 @@
             "img":"https://s1.imgs.cc/img/aaaaaUutg.png",
             "relateLink":"http://imgs.cc/index.php",
             "tags":["vue","plugins"]
+        },
+        {
+            "id":4,
+            "title":"GSAP3套件引用 畫面動態效果",
+            "cratetime":"2019-12-04",
+            "txt":"1.npm install gsap<br>2.在vue引用後 gsap的js寫在畫面組合的根組件的mounted(){}中，讓動畫效果渲染的時間點控制在組件渲染到畫面之後才執行<br>3.補充:DOM的選取寫法與jQuery相似，擷取範例gsap.timeline().from('.carditem', { duration: 2, opacity: 0,scale:0.3 })",
+            "img":"https://s1.imgs.cc/img/aaaaaV1k9.png",
+            "relateLink":"https://greensock.com/",
+            "tags":["plugins"]
         }
     ],
     "tags":[
