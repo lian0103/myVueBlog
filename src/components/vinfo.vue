@@ -2,7 +2,7 @@
   <div class="vinfo">
     <div class="logo">
       <img :src="catImg" alt="" class="h-16 w-16 rounded-full p-1">
-      <p class="align-middle p-1 lh80">{{title}}</p>
+      <p class="align-middle p-1 lh80 fontIkea">{{title}}</p>
     </div>
     <div class="infoMenu">
       <p class="p-1"><i class="far fa-compass"></i>by Jason Lien</p>
@@ -16,7 +16,7 @@ import catImg from "../assets/img/cat.jpeg";
 export default {
   data(){
     return{
-      title:"My-blog",
+      title:"MyBlog",
       catImg:catImg
     }
   },
@@ -56,7 +56,7 @@ export default {
   text-align: left;
 }
 .lh80{
-  line-height: 80px;
+  line-height: 60px;
 }
 
 @media only screen and (max-width: 767px){
@@ -66,8 +66,7 @@ export default {
     justify-content: flex-start;
   }
   .infoMenu{
-    position: absolute;
-    font-size: .7rem;
+    display: none;
   }
   .logo{
     padding: .5rem;

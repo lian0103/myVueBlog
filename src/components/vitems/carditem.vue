@@ -1,6 +1,6 @@
 <template>
   <div class="carditem">
-    <h2>{{cardtopic}}</h2>
+    <h2 class="fontIkea">{{cardtopic}}</h2>
     <div class="maincontent">
       <div class="first">
         <img :src="firstImg" alt />
@@ -64,7 +64,7 @@ export default {
     return {
       cardtopic: dataObj.cardtopic,
       firstImg: rowdata[0].img,
-      firstTitle: rowdata[0].title,
+      firstTitle: "《"+rowdata[0].title+"》",
       firstTxt: rowdata[0].txt,
       firstLink: rowdata[0].relateLink,
       firstCratetime: "#" + rowdata[0].cratetime,
@@ -93,7 +93,7 @@ export default {
       }
       var index = parseInt(id) - 1;
       this.firstImg = rowdata[index].img;
-      this.firstTitle = rowdata[index].title;
+      this.firstTitle ="《"+ rowdata[index].title+"》";
       this.firstTxt = rowdata[index].txt;
       this.firstLink = rowdata[index].relateLink;
       this.firstCratetime = "#" + rowdata[index].cratetime;
@@ -113,6 +113,9 @@ export default {
   align-items: flex-start;
   padding: 1.25rem;
   opacity: 1;
+}
+.carditem h2{
+  font-size: 1.3rem;
 }
 .maincontent {
   display: flex;
@@ -160,7 +163,7 @@ export default {
 
 .first img {
   max-width: 24rem;
-  margin: auto;
+  margin-right: auto;
   border-radius: 0.5rem;
 }
 .first h3 {

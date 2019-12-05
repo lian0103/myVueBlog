@@ -31,7 +31,6 @@ function initGsap() {
       duration: 2,
       opacity: 0,
       stagger: 0.3,
-      ease: "back",
       xPercent: 100
     });
 }
@@ -40,6 +39,15 @@ function initGsap() {
 <style>
 body {
   overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "IkeaSofa";
+  src: url("./assets/font/IKEA-SOFA-SANS.otf");
+}
+.fontIkea{
+  font-family: "IkeaSofa";
+  font-size: 2rem !important;
 }
 
 div::-webkit-scrollbar {

@@ -1,11 +1,11 @@
 {
-    "cardtopic":"學習紀錄",
+    "cardtopic":"learnning notes",
     "rowdata":[
         {
             "id":1,
-            "title":"《使用githubPage&vue cli建立部落個網頁》",
+            "title":"使用githubPage&vue cli設新專案",
             "cratetime":"2019-11-30",
-            "txt":"主要步驟:<br>1.在本機建立開發環境，透過vue create '專案'<br>2. 使用vue開發頁面組件 <br> 3.local透過npm run build打包成可部署的檔案 <br>5.推送至github<br> ",
+            "txt":"主要步驟:<br>1.在本機建立開發環境，透過vue create '專案'<br>2. 使用vue開發頁面組件 <br> 3.local透過npm run build打包成可部署的檔案 <br>4.推送至github<br> ",
             "img":"https://s1.imgs.cc/img/aaaaaUva6.png",
             "relateLink":"https://pages.github.com/",
             "tags":["vue"]
@@ -33,7 +33,7 @@
             "title":"GSAP3套件引用 畫面動態效果",
             "cratetime":"2019-12-04",
             "txt":"1.npm install gsap<br>2.在vue引用後 gsap的js寫在畫面組合的根組件的mounted(){}中，讓動畫效果渲染的時間點控制在組件渲染到畫面之後才執行<br>3.補充:DOM的選取寫法與jQuery相似，擷取範例gsap.timeline().from('.carditem', { duration: 2, opacity: 0,scale:0.3 })",
-            "img":"https://s1.imgs.cc/img/aaaaaV1k9.png",
+            "img":"https://s1.imgs.cc/img/aaaaaVkcR.gif",
             "relateLink":"https://greensock.com/",
             "tags":["plugins"]
         }
