@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import $ from "jquery"
+import $ from "jquery";
 export default {
   name: "vprofile",
   methods: {
@@ -32,19 +32,17 @@ var index = 0;
 var imgList = [
   "https://tva1.sinaimg.cn/large/006tNbRwgy1g9plx0452yj31400u04qq.jpg",
   "https://tva1.sinaimg.cn/large/006tNbRwgy1g9phwmkwl3j30hs0dd77x.jpg",
-  "https://tva1.sinaimg.cn/large/006tNbRwgy1g9pjf8k3kxj31400u04qq.jpg",
+  "https://tva1.sinaimg.cn/large/006tNbRwgy1g9pjf8k3kxj31400u04qq.jpg"
 ];
 function changeImg() {
-    index++;
-    if (!(index <= imgList.length - 1)) {
-      index = 0;
-    }
-    $('#headImg').attr("src", imgList[index]);
-    setTimeout(changeImg,6000);
+  index++;
+  if (!(index <= imgList.length - 1)) {
+    index = 0;
+  }
+  $("#headImg").attr("src", imgList[index]);
+  setTimeout(changeImg, 6000);
 }
-setTimeout(changeImg,2000);
-
-
+setTimeout(changeImg, 2000);
 </script>
 
 <style scoped>
@@ -70,13 +68,13 @@ setTimeout(changeImg,2000);
   right: 10%;
 }
 
-.imgbox img{
+.imgbox img {
   border-radius: 15px;
 }
 
 .imgtxtPbox {
   text-align: left;
-  padding: .75rem;
+  padding: 0.75rem;
   background: #ccc;
   position: absolute;
   right: 20%;
@@ -87,7 +85,7 @@ setTimeout(changeImg,2000);
   padding: 4px 0;
 }
 
-.imgtxtPbox p:last-child{
+.imgtxtPbox p:last-child {
   text-align: right;
 }
 
@@ -112,17 +110,30 @@ setTimeout(changeImg,2000);
 }
 
 @media only screen and (max-width: 767px) {
-  .imgtxt{
-      flex-direction: column;
+  .profile{
+    padding: .5rem;
+  }
+
+  .imgtxt {
+    flex-direction: column;
   }
 
   .imgbox {
-    max-width: 320px;
+    width:95%;
     margin: 10px 0;
-    height: unset;
+    height: auto;
+    right: 0%;
   }
   .imgbox img {
-    max-height: 200px;
+    width: 100%;
+  }
+  .imgtxtPbox {
+    text-align: left;
+    padding: 0.75rem;
+    background: #ccc;
+    position: relative;
+    right: 0%;
+    bottom: 0%;
   }
 }
 </style>

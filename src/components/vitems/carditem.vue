@@ -225,8 +225,10 @@ button:focus {
     padding: 0.5rem;
   }
   .maincontent {
+    width: 98%;
+    margin: auto;
     flex-direction: column;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
   }
   .spansbox {
     bottom: 5px;
