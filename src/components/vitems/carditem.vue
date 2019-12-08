@@ -1,6 +1,6 @@
 <template>
   <div class="carditem">
-    <h2>{{cardtopic}}</h2>
+    <h2><span></span><span>{{cardtopic}}</span><span></span></h2>
     <div class="maincontent">
       <div class="first">
         <img :src="firstImg" alt />
@@ -227,19 +227,40 @@ button:focus {
   .maincontent {
     width: 98%;
     margin: auto;
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding-bottom: 40px;
   }
   .spansbox {
     bottom: 5px;
   }
+
   .first img {
-    max-width: 20rem;
+    max-width: 100%;
+    border-radius: 15px;
     padding: 10px 0;
   }
 
-  .first img {
-    max-width: 14rem;
+  .carditem h2{
+    border:none;
+    border-image: none;
+    text-align: center;
+    width: 100%;
+    position: relative;
+  }
+  .carditem h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .carditem h2 span:first-child,.carditem h2 span:last-child{
+    display: block;
+    width: 25%;
+    height: 0;
+    border:1px solid #444;
+    margin: 0px 4px;
+    /* position: absolute;
+    top: 50%;
+    left: 0%; */
   }
 }
 </style>
