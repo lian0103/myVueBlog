@@ -1,20 +1,22 @@
 <template>
   <div class="vcontainer">
-    <carditem dataTarget="work"></carditem>
-    <carditem dataTarget="life"></carditem>
+    <vprofile></vprofile>
+    <carditem data-target="work"></carditem>
+    <carditem data-target="life"></carditem>
   </div>
 </template>
 
 <script>
-import carditem from './vitems/carditem.vue'
+import carditem from "./vitems/carditem.vue";
+import vprofile from "./vitems/vprofile.vue";
 export default {
   name: "vcontainer",
   components: {
-    carditem
+    carditem,
+    vprofile
   }
 };
 </script>
-
 <style scoped>
 .vcontainer {
   width: 100%;

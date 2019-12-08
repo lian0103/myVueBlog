@@ -1,6 +1,6 @@
 <template>
   <div class="carditem">
-    <h2 class="fontIkea">{{cardtopic}}</h2>
+    <h2>{{cardtopic}}</h2>
     <div class="maincontent">
       <div class="first">
         <img :src="firstImg" alt />
@@ -64,7 +64,7 @@ export default {
     return {
       cardtopic: dataObj.cardtopic,
       firstImg: rowdata[0].img,
-      firstTitle: "《"+rowdata[0].title+"》",
+      firstTitle: "《" + rowdata[0].title + "》",
       firstTxt: rowdata[0].txt,
       firstLink: rowdata[0].relateLink,
       firstCratetime: "#" + rowdata[0].cratetime,
@@ -93,7 +93,7 @@ export default {
       }
       var index = parseInt(id) - 1;
       this.firstImg = rowdata[index].img;
-      this.firstTitle ="《"+ rowdata[index].title+"》";
+      this.firstTitle = "《" + rowdata[index].title + "》";
       this.firstTxt = rowdata[index].txt;
       this.firstLink = rowdata[index].relateLink;
       this.firstCratetime = "#" + rowdata[index].cratetime;
@@ -114,8 +114,21 @@ export default {
   padding: 1.25rem;
   opacity: 1;
 }
-.carditem h2{
+.carditem h2 {
   font-size: 1.3rem;
+  border-left: 12px solid transparent;
+  border-image: 12 repeating-linear-gradient(
+      -45deg,
+      red 0,
+      red .1em,
+      transparent 0,
+      transparent .2em,
+      #58a 0,
+      #58a .3em,
+      transparent 0,
+      transparent .4em
+    );
+  padding: 12px .5rem;
 }
 .maincontent {
   display: flex;
@@ -154,11 +167,6 @@ export default {
   padding: 0.25rem;
   font-size: 0.9rem;
   white-space: nowrap;
-}
-
-.carditem h2 {
-  border-left: 4px solid #ed8936;
-  padding: 0px 0.5rem;
 }
 
 .first img {
@@ -226,6 +234,10 @@ button:focus {
   .first img {
     max-width: 20rem;
     padding: 10px 0;
+  }
+
+  .first img {
+    max-width: 14rem;
   }
 }
 </style>
