@@ -1,13 +1,17 @@
 <template>
   <div id="app">
-    <vinfo></vinfo>
-    <vcontainer></vcontainer>
+    <vmenubox></vmenubox>
+    <div class="mainbox">
+      <vcontainer></vcontainer>
+    </div>
+    <vfooter></vfooter>
   </div>
 </template>
 
 <script>
-import vinfo from "./components/vinfo.vue";
 import vcontainer from "./components/vcontainer.vue";
+import vmenubox from "./components/vmenubox.vue";
+import vfooter from "./components/vfooter.vue";
 import gsap from "../node_modules/gsap/dist/gsap.min.js";
 export default {
   data() {
@@ -15,8 +19,9 @@ export default {
   },
   name: "app",
   components: {
-    vinfo: vinfo,
-    vcontainer: vcontainer
+    vcontainer: vcontainer,
+    vmenubox: vmenubox,
+    vfooter:vfooter
   },
   mounted() {
     initGsap();
@@ -26,8 +31,8 @@ export default {
 function initGsap() {
   gsap
     .timeline()
-    .from(".carditem", { duration: 2, opacity: 0, scale: 0.3 })
-    .from(".others ul li", {
+    .from(".menu_info", { duration: 2, opacity: 0, scale: 0.3 })
+    .from(".sec ul li", {
       duration: 2,
       opacity: 0,
       stagger: 0.3,
@@ -41,29 +46,32 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @font-face {
   font-family: "IkeaSofa";
   src: url("./assets/font/IKEA-SOFA-SANS.otf");
 }
-.fontIkea{
+.fontIkea {
   font-family: "IkeaSofa";
   font-size: 2rem !important;
 }
 
 div::-webkit-scrollbar {
-width: 5px;
+  width: 5px;
 }
 div::-webkit-scrollbar-track {
--webkit-border-radius: 10px;
-border-radius: 10px;
-margin:10px 0 5px 0;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 10px 0 5px 0;
 }
 div::-webkit-scrollbar-thumb {
--webkit-border-radius: 4px;
-border-radius: 4px;
-background: rgb(219,219,219);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: rgb(219, 219, 219);
 }
-
 
 #app {
   width: 100%;

@@ -1,7 +1,7 @@
 <template>
   <div class="vcontainer">
-    <vprofile></vprofile>
-    <carditem data-target="work"></carditem>
+    <vprofile id="about"></vprofile>
+    <carditem id="record" data-target="work"></carditem>
     <carditem data-target="life"></carditem>
   </div>
 </template>

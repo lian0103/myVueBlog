@@ -140,6 +140,8 @@ export default {
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   text-align: left;
   position: relative;
+  flex-direction: row-reverse;
+  padding: .75rem 0;
 }
 
 .first {

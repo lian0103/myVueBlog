@@ -6,7 +6,6 @@
     </div>
     <div class="infoMenu">
       <p class="p-1"><i class="far fa-compass"></i>by Jason Lien</p>
-      <p class="p-1"><i class="far fa-envelope"></i>k1319900103@gmail.com</p>
     </div>
   </div>
 </template>

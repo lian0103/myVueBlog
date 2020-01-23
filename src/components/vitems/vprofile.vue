@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <h2>about me</h2>
+    <h2><span></span><span>about_me</span><span></span></h2>
     <div class="imgtxt">
       <div class="imgbox">
         <img
@@ -48,6 +48,7 @@ setTimeout(changeImg, 2000);
 <style scoped>
 .profile {
   padding: 1.25rem;
+  position: relative;
 }
 
 .imgtxt {
@@ -77,8 +78,8 @@ setTimeout(changeImg, 2000);
   padding: 0.75rem;
   background: #ccc;
   position: absolute;
-  right: 20%;
-  bottom: 20%;
+  right: 15%;
+  bottom: 5%;
 }
 
 .imgtxtPbox p {
@@ -110,8 +111,8 @@ setTimeout(changeImg, 2000);
 }
 
 @media only screen and (max-width: 767px) {
-  .profile{
-    padding: .5rem;
+  .profile {
+    padding: 0.5rem;
   }
 
   .imgtxt {
@@ -119,7 +120,7 @@ setTimeout(changeImg, 2000);
   }
 
   .imgbox {
-    width:95%;
+    width: 95%;
     margin: 10px 0;
     height: auto;
     right: 0%;
@@ -134,6 +135,29 @@ setTimeout(changeImg, 2000);
     position: relative;
     right: 0%;
     bottom: 0%;
+  }
+  .profile h2 {
+    border: none;
+    border-image: none;
+    text-align: center;
+    width: 100%;
+    position: relative;
+  }
+  .profile h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile h2 span:first-child,
+  .profile h2 span:last-child {
+    display: block;
+    width: 25%;
+    height: 0;
+    border: 1px solid #444;
+    margin: 0px 4px;
+    /* position: absolute;
+    top: 50%;
+    left: 0%; */
   }
 }
 </style>
