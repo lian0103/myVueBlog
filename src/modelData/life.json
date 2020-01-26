@@ -4,20 +4,28 @@
     {
       "id": 1,
       "title": "82年生的金智英",
+      "enTitle":"1982Kim-Ji-Young",
       "cratetime": "2019-12-02",
+      "year":"2019",
+      "mIndex":"11",
       "txt": "小說改編，題材有關於韓國重男輕女的家庭觀念與職場歧視。<br>觀後感，溫馨感人",
       "img": "https://tva1.sinaimg.cn/large/006tNbRwgy1g9pi76infoj30m80erjsa.jpg",
       "relateLink": "https://www.youtube.com/watch?v=INXcDv3ZD1c",
-      "tags": ["movie"]
+      "tags": ["movie"],
+      "url":"/lifelist/2019/12/02/1982Kim-Ji-Young"
     },
     {
       "id": 2,
       "title": "還沒去過的富士山",
+      "enTitle":"FuGiMountain",
       "cratetime": "2019-12-02",
+      "year":"2019",
+      "mIndex":"11",
       "txt": "某天晚上收到一張富士山的照片<br>也太美了吧！！！<br>希望明年來去！",
       "img": "https://tva1.sinaimg.cn/large/006tNbRwgy1g9plwy20tfj31410u0gzc.jpg",
       "relateLink": "",
-      "tags": ["sport"]
+      "tags": ["sport"],
+      "url":"/lifelist/2019/12/02/FuGiMountain"
     }
   ],
   "tags": [{

@@ -7,6 +7,7 @@
     <div class="infoMenu">
       <p class="p-1"><i class="far fa-compass"></i>by Jason Lien</p>
     </div>
+    <hr/>
   </div>
 </template>
 
@@ -35,7 +36,7 @@ export default {
   flex-grow: 0;
   flex-shrink: 0;
   position: relative;
-  box-shadow: inset 0 2px 4px 0 rgba(0,0,0,.06);
+  /* box-shadow:  0 2px 4px 0 rgba(0,0,0,.06); */
   display: flex;
   justify-content: center;
 }
@@ -63,9 +64,6 @@ export default {
     max-width: 100vw;
     flex-basis: 65px;
     justify-content: flex-start;
-  }
-  .infoMenu{
-    display: none;
   }
   .logo{
     padding: .5rem;

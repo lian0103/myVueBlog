@@ -29,7 +29,9 @@ export default {
 
 <style>
 .footerMsg {
-  width: 100%;
+  width: 80%;
+  margin: auto;
+  max-width: 800px;
   padding: 0.75rem;
   background-color: #fff;
 }

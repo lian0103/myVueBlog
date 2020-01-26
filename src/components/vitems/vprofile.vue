@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <h2><span></span><span>about_me</span><span></span></h2>
+    <h2><span></span><span>about me</span><span></span></h2>
     <div class="imgtxt">
       <div class="imgbox">
         <img
@@ -53,6 +53,7 @@ setTimeout(changeImg, 2000);
 
 .imgtxt {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -78,7 +79,7 @@ setTimeout(changeImg, 2000);
   padding: 0.75rem;
   background: #ccc;
   position: absolute;
-  right: 15%;
+  right: 10%;
   bottom: 5%;
 }
 
@@ -110,7 +111,7 @@ setTimeout(changeImg, 2000);
   padding: 12px 0.5rem;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1300px) {
   .profile {
     padding: 0.5rem;
   }

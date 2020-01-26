@@ -1,27 +1,30 @@
 <template>
   <div id="app">
-    <vmenubox></vmenubox>
-    <div class="mainbox">
-      <vcontainer></vcontainer>
+    <vinfo></vinfo>
+    <div class="pagerow">
+      <div class="navMenu">
+        <vmenubox></vmenubox>
+      </div>
+      <div class="containerbox">
+        <router-view></router-view>
+      </div>
     </div>
-    <vfooter></vfooter>
   </div>
 </template>
 
 <script>
-import vcontainer from "./components/vcontainer.vue";
 import vmenubox from "./components/vmenubox.vue";
-import vfooter from "./components/vfooter.vue";
+import vinfo from "./components/vinfo";
 import gsap from "../node_modules/gsap/dist/gsap.min.js";
+
 export default {
   data() {
     return {};
   },
   name: "app",
   components: {
-    vcontainer: vcontainer,
     vmenubox: vmenubox,
-    vfooter:vfooter
+    vinfo: vinfo
   },
   mounted() {
     initGsap();
@@ -42,37 +45,6 @@ function initGsap() {
 </script>
 
 <style>
-body {
-  overflow-x: hidden;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-@font-face {
-  font-family: "IkeaSofa";
-  src: url("./assets/font/IKEA-SOFA-SANS.otf");
-}
-.fontIkea {
-  font-family: "IkeaSofa";
-  font-size: 2rem !important;
-}
-
-div::-webkit-scrollbar {
-  width: 5px;
-}
-div::-webkit-scrollbar-track {
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  margin: 10px 0 5px 0;
-}
-div::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  background: rgb(219, 219, 219);
-}
-
 #app {
   width: 100%;
   min-height: 100vh;
@@ -89,6 +61,22 @@ div::-webkit-scrollbar-thumb {
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.1em;
+}
+
+.pagerow{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.containerbox {
+  width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
 }
 
 @media only screen and (max-width: 767px) {
