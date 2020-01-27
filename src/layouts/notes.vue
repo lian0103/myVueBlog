@@ -7,7 +7,8 @@
     <div class="pbox">
       <div class="ptitle">{{thisNote.title}}</div>
       <div class="ptagicons">
-        標籤：<span v-bind:key="icon.id" v-for="icon in thisIconTags" v-html="icon.Icon+icon.name"></span>
+        標籤：
+        <span v-bind:key="icon.id" v-for="icon in thisIconTags" v-html="icon.Icon+icon.name"></span>
       </div>
       <div class="pcontent" v-html="thisNote.txt"></div>
       <div class="pills">
@@ -100,5 +101,29 @@ export default {
   font-weight: 600;
   border-radius: 25px;
   background-color: #edf2f7;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .btn_back{
+    top:0;
+    left: -5%;
+  }
+  .pimg {
+    max-width: 90%;
+  }
+  .pbox{
+    padding: 0.5rem;
+    width: 95%;
+    font-size: 1.4rem;
+  }
+  .ptitle{
+    font-size: 1.4rem;
+  }
+
+  .ptagicons,.pcontent{
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+  }
 }
 </style>

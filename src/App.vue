@@ -61,17 +61,20 @@ function initGsap() {
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.1em;
+  overflow-x: hidden !important;
+  background-image: linear-gradient(to bottom right, #002f4b8c, #dc432596);
 }
 
-.pagerow{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
+.pagerow {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .containerbox {
   width: 100%;
-  overflow-y: scroll;
+  height: auto;
+  /* overflow-y: scroll; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -82,6 +85,10 @@ function initGsap() {
 @media only screen and (max-width: 767px) {
   #app {
     overflow: hidden;
+  }
+
+  html {
+    font-size: 14px;
   }
 }
 </style>

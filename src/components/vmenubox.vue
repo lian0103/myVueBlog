@@ -42,6 +42,7 @@ export default {
   padding: 0.75rem;
   filter: grayscale(50%);
   box-shadow: 2px 5px 5px #888888;
+  background-color: white;
 }
 
 .menu_info {
@@ -75,4 +76,11 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
+@media only screen and (max-width: 767px) {
+  .sec li {
+    font-size: .8rem;
+  }
+}
+
 </style>

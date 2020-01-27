@@ -111,7 +111,7 @@ setTimeout(changeImg, 2000);
   padding: 12px 0.5rem;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 768px) {
   .profile {
     padding: 0.5rem;
   }
@@ -135,7 +135,9 @@ setTimeout(changeImg, 2000);
     background: #ccc;
     position: relative;
     right: 0%;
-    bottom: 0%;
+    bottom: 40px;
+    font-size: 1rem;
+    width: 85%;
   }
   .profile h2 {
     border: none;
