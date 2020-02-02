@@ -14,10 +14,12 @@
 
 <script>
 import lifelist from "../modelData/life.json";
+var lifelistR = lifelist.rowdata.reverse();
 export default {
   data() {
     return {
-      lifelist: lifelist.rowdata
+      lifelist: lifelistR,
+      iconTags: lifelist.tags
     };
   },
   methods: {
@@ -66,12 +68,12 @@ export default {
     justify-content: flex-start;
     align-items: center;
   }
-  .flexbox strong{
+  .flexbox strong {
     width: 50px;
     min-width: 50px;
   }
 
-  .flexbox span{
+  .flexbox span {
     flex-grow: 2;
     line-height: 1.3rem;
   }

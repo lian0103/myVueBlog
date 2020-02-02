@@ -3,7 +3,14 @@
     <router-link class="btn_back" to="/lifelist">
       <i class="fas fa-long-arrow-alt-left"></i>回上層
     </router-link>
-    <img class="pimg" :src="thisNote.img" alt />
+    <div class="imgbox">
+      <div class="imgboxleft">
+        <img class="pimg" :src="thisNote.img" alt />
+      </div>
+      <div class="imgboxright" v-if="thisNote.imgs.length != 0">
+        <img v-for="item in thisNote.imgs" :src="item" :key="item" alt="">
+      </div>
+    </div>
     <div class="pbox">
       <div class="ptitle">{{thisNote.title}}</div>
       <div class="ptagicons">
@@ -58,9 +65,26 @@ export default {
   position: relative;
   padding-top: 25px;
 }
-.pimg {
+.imgbox {
+  display: flex;
   max-width: 60%;
+  flex-direction: column;
 }
+
+.imgboxleft{
+  flex-grow: 2;
+  padding: 0 15px;
+}
+
+.imgboxright{
+  display: flex;
+}
+.imgboxright img{
+  padding: 15px;
+  max-width: 50%;
+  flex-grow: 2;
+}
+
 .pbox {
   padding: 0.75rem;
   width: 80%;
@@ -89,14 +113,14 @@ export default {
   top: -10px;
 }
 .pills {
-  padding: 0.5rem;
+  padding: 0.5rem 0;
 }
 .pills a,
 .pills span {
   display: inline-block;
   font-size: 0.875rem;
   padding: 0.25rem 0.75rem;
-  margin: 0 0.5rem;
+  margin: 0 0.5rem 0 0;
   font-weight: 600;
   border-radius: 25px;
   background-color: #edf2f7;
@@ -106,7 +130,7 @@ export default {
     top: 0;
     left: -5%;
   }
-  .pimg {
+  .imgbox {
     max-width: 90%;
   }
   .pbox {

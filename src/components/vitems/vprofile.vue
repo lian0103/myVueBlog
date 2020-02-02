@@ -10,10 +10,11 @@
         />
       </div>
       <div class="imgtxtPbox">
-        <p>文組轉職網頁前端工程師</p>
+        <p>2019年資策會前端班結訓</p>
+        <p>現為前端工程師。</p>
         <p>寫程式是為了生活 也是一種樂趣</p>
-        <p>工作語言涉略 javascritp 和 java</p>
-        <p>前端框架學習目前Vue為主</p>
+        <p>工作語言接觸 javascritp 和 java</p>
+        <p>框架學習目前Vue為主</p>
         <p>-2019-12-8</p>
       </div>
     </div>

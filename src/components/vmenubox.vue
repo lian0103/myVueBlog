@@ -8,7 +8,7 @@
             <router-link to="/about">關於我</router-link>
           </li>
           <li>
-            <router-link to="/notelist">筆記列表</router-link>
+            <router-link to="/notelist">前端開發筆記</router-link>
           </li>
           <li>
             <router-link to="/lifelist">生活分享</router-link>

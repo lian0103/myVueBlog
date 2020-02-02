@@ -90,14 +90,14 @@ export default {
   top: -10px;
 }
 .pills {
-  padding: 0.5rem;
+  padding: 0.5rem 0;
 }
 .pills a,
 .pills span {
   display: inline-block;
   font-size: 0.875rem;
   padding: 0.25rem 0.75rem;
-  margin: 0 0.5rem;
+  margin: 0 0.5rem 0 0;
   font-weight: 600;
   border-radius: 25px;
   background-color: #edf2f7;
