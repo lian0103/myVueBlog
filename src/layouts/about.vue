@@ -37,7 +37,7 @@ export default {
 .item {
   display: inline-block;
   max-width: 45%;
-  padding: 10px;
+  padding: 0px;
   /* border: 2px solid #fff; */
   border-radius: 15px;
   position: relative;
@@ -78,9 +78,14 @@ export default {
   border-radius: 15px;
   width: 100%;
 }
+
+.item:hover {
+  box-shadow: 0px 0px 3px 3px #ff0;
+}
+
 .item:hover img{
   transform: scale(1.2);
-  filter: blur(5px);
+  filter: blur(3px);
 }
 
 .item:hover h3{
