@@ -32,6 +32,7 @@ export default {
 .imgsbox {
   max-width: 85%;
   margin: auto;
+  text-align: center;
 }
 .item {
   display: inline-block;
@@ -52,11 +53,12 @@ export default {
   max-width: 45%;
 }
 .item:nth-child(3){
-  max-width: 100%;
+  max-width: 95%;
 }
 
 .item .txt{
   height: 100%;
+  width: 100%;
   position: absolute;
   color: #444;
   padding: 1.5rem 1.75rem;

@@ -147,5 +147,9 @@ export default {
     font-size: 1.1rem;
     line-height: 1.7rem;
   }
+
+  .imgboxright img{
+    max-height: 200px;
+  }
 }
 </style>

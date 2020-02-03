@@ -52,6 +52,19 @@
             "relateLink":"https://greensock.com/",
             "tags":["plugins"],
             "url":"/notes/2019/12/04/useGSAP3"
+        },
+        {
+            "id":5,
+            "title":"blog中vue動態路由設定",
+            "cratetime":"2020-02-02",
+            "enTitle":"vueRouterSetting",
+            "year":"2020",
+            "mIndex":"1",
+            "txt":"在瀏覽器網址中的hash值的改變，讓vue工具可以製作渲染新的頁面組件但不reload的效果。首先注入需要的Vue與Router物件的資源，以及改變url hash狀態要對應的各個組件。<img src='https://tva1.sinaimg.cn/large/006tNbRwgy1gbizwatxajj30u00ae40r.jpg'><br>1.在routes陣列中，每一個物件可設定hash靜態與動態的對應名稱，並呼叫指定的component<br>2.動態的設計方式，我這邊參考其他部落客換頁時的hash變化，設定的變項是「:year、:month、:day、:name」，透過此方式讓載入組件後能用這些值當key值去抓對應的文章資料<br>3.最後再將這些設定值給vueRouter物件去產生一個router物件，這個物件即是根組件將拿來使用設定路由的物件<img src='https://tva1.sinaimg.cn/large/006tNbRwgy1gbizome2lzj313e0kyadz.jpg'><br>4.注入到main.js要實作一個vue實例即可引入。若未有設定，改變url的hash值時則是讓瀏覽器去抓相對應id名稱html元件，是不同的應用情況。<img src='https://tva1.sinaimg.cn/large/006tNbRwgy1gbj0rr8d28j30wg0fuq4n.jpg'>",
+            "img":"https://tva1.sinaimg.cn/large/006tNbRwgy1gbj0l9hyzyj30xc0dwmxo.jpg",
+            "relateLink":"https://greensock.com/",
+            "tags":["plugins"],
+            "url":"/notes/2020/02/02/vueRouterSetting"
         }
     ],
     "tags":[

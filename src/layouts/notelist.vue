@@ -14,11 +14,11 @@
 
 <script>
 import notelist from "../modelData/note.json";
-
+var notes = notelist.rowdata.reverse();
 export default {
   data() {
     return {
-      notelist: notelist.rowdata
+      notelist: notes
     };
   },
   methods: {
@@ -52,14 +52,22 @@ export default {
 .imgIcon {
   display: inline-block;
   max-width: 75px;
+  width: 100%;
   padding: 10px;
   border-radius: 15px;
 }
-.page li{
+.page li {
   width: 50%;
-  margin: auto;
+  margin: 15px auto;
   text-align: left;
 }
+.page li img{
+  display: inline;
+  max-height: 30px;
+  vertical-align: text-bottom;
+  padding: 0 10px;
+}
+
 
 @media only screen and (max-width: 768px) {
   .page {
@@ -72,12 +80,15 @@ export default {
   }
   .flexbox {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    /* justify-content: flex-start;
+    align-items: center; */
   }
   .flexbox strong {
     width: 50px;
     min-width: 50px;
+  }
+  .flexbox img {
+    flex-grow: 2;
   }
 
   .flexbox span {
