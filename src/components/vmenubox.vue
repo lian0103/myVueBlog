@@ -13,6 +13,9 @@
           <li>
             <router-link to="/lifelist">生活分享</router-link>
           </li>
+          <li>
+            <router-link to="/vuePlugin">vue plugin</router-link>
+          </li>
         </ul>
       </div>
     </div>
@@ -60,8 +63,12 @@ export default {
   font-family: IkeaSofa;
 }
 
+.sec ul{
+  text-align: center;
+}
+
 .sec li {
-  width: 30%;
+  width: 24%;
   height: 2rem;
   line-height: 2rem;
   display: inline-block;
@@ -80,6 +87,8 @@ export default {
 @media only screen and (max-width: 767px) {
   .sec li {
     font-size: .8rem;
+    height: auto;
+    line-height: 1.2;
   }
 }
 

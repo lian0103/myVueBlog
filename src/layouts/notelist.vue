@@ -9,7 +9,8 @@
         <router-link :to="item.url" class="flexbox">
           <strong class="stime">{{timeTrans(item.mIndex)}} {{item.year}}</strong>
           <img class="imgIcon" :src="item.img" alt />
-          <span>{{item.title}}</span>
+          <span v-if="!isMobile">{{item.title}}</span>
+          <span v-if="isMobile">{{item.title.substring(0,12)+"..."}}</span>
           <span class="tags" v-for="tag in rowTagMappingArr[index]" :key="tag.id">
             <strong v-html="tag.Icon"></strong>
           </span>
@@ -44,7 +45,8 @@ export default {
     return {
       notelist: notes,
       rowTagMappingArr: rowTagMappingArr,
-      tagsArr: tagsArr
+      tagsArr: tagsArr,
+      isMobile:window.innerWidth<768?true:false
     };
   },
   methods: {
@@ -115,6 +117,11 @@ export default {
 }
 
 @media only screen and (max-width: 768px) {
+
+  .titleTag {
+    width: 100%;
+  }
+
   .page {
     font-size: 1rem;
   }

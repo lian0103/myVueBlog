@@ -5,6 +5,7 @@ import notes from '../layouts/notes.vue'
 import lifes from '../layouts/lifes.vue'
 import notelist from '../layouts/notelist.vue'
 import lifelist from '../layouts/lifelist.vue'
+import vuePlugin from '../layouts/vuePlugin.vue'
 
 Vue.use(VueRouter)
 const routes = [
@@ -13,7 +14,8 @@ const routes = [
     { path: '/notelist', component: notelist },
     { path: '/lifelist', component: lifelist },
     { path: '/lifelist/:year/:month/:day/:name', component: lifes },
-    { path: '/notes/:year/:month/:day/:name', component: notes }
+    { path: '/notes/:year/:month/:day/:name', component: notes },
+    { path: '/vuePlugin',component:vuePlugin}
   ]
 
 const router = new VueRouter({
