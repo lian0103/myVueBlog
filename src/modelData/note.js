@@ -1,4 +1,4 @@
-{
+export default {
     "cardtopic":"learnning notes",
     "rowdata":[
         {

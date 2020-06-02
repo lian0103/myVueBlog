@@ -44,7 +44,7 @@ function initGsap() {
 }
 </script>
 
-<style>
+<style >
 html,
 body,
 div,

@@ -1,25 +1,16 @@
 <template>
   <div class="page">
     <vprofile></vprofile>
-    <div class="imgsbox">
-      <div class="item" v-for="item in aboutme" :key="item.id">
-        <img :src="item.imgsrc" alt="pic" />
-        <div class="txt">
-          <h3>{{item.title}}</h3>
-          <p>{{item.txt}}</p>
-        </div>
-      </div>
-    </div>
+
   </div>
 </template>
 
 <script>
 import vprofile from "../components/vitems/vprofile.vue";
-import aboutme from "../modelData/aboutme.json";
 export default {
   data() {
     return {
-      aboutme: aboutme.imgboxs
+
     };
   },
   components: {

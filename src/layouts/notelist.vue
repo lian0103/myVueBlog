@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import notelist from "../modelData/note.json";
+import notelist from "../modelData/note.js";
 var notes = notelist.rowdata.reverse();
 var tagsArr = notelist.tags;
 var rowTagMappingArr = [];

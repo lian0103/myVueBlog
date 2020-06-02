@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <h1>hello</h1>
     <router-link class="btn_back" to="/notelist">
       <i class="fas fa-long-arrow-alt-left"></i>回上層
     </router-link>
@@ -21,7 +22,7 @@
 </template>
 
 <script>
-import notelist from "../modelData/note.json";
+import notelist from "../modelData/note.js";
 
 export default {
   data() {
@@ -50,7 +51,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .page {
   display: flex;
   flex-direction: column;
@@ -58,6 +59,9 @@ export default {
   align-items: center;
   position: relative;
   padding-top: 25px;
+  h1{
+    font-size:2rem;
+  }
 }
 .pimg {
   max-width: 60%;
