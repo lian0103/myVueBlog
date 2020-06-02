@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import notelist from "../modelData/life.json";
+import notelist from "../modelData/life.js";
 
 export default {
   data() {

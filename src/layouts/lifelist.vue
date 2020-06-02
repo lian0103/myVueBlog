@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import lifelist from "../modelData/life.json";
+import lifelist from "../modelData/life.js";
 var lifelistR = lifelist.rowdata.reverse();
 var tagsArr = lifelist.tags;
 var rowTagMappingArr = [];

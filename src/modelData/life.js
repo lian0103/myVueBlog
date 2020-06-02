@@ -1,5 +1,5 @@
 
- {
+export default {
   "cardtopic": "life record",
   "rowdata": [
     {
@@ -66,8 +66,11 @@
       "cratetime": "2020-06-01",
       "year": "2020",
       "mIndex": "1",
-      "txt": "第一次記錄~~<br> 在多人共同開發/使用共用元件目前會傳遞一個屬性後判斷流程,再依照需求去加入js、scss的調整部分<br>",
-      "img": "./modelData/imgs/react.png",
+      "txt": `第一次記錄~~<br>
+        在多人共同開發/使用共用元件目前會傳遞一個屬性後判斷流程,再依照需求去加入js、scss的調整部分<br>
+        避免影響到原本有使用的地方!!
+      `,
+      "img": require('./imgs/react.png'),
       "imgs": [],
       "relateLink": "https://zh-hant.reactjs.org/",
       "tags": [
