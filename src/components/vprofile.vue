@@ -7,66 +7,61 @@
     </h2>
     <div class="imgsAndTxt">
       <div class="imgs">
-        <img id="headImg" src alt />
+        <img id="headImg" :src="headImg" alt />
+        <img id="headImg" :src="headImg2" alt />
       </div>
       <div class="txt">
-        <p>
-          2019年資策會前端班結訓
-          現為前端工程師。
-          寫程式是為了生活 也是一種樂趣
-          工作語言接觸 javascritp 和 java
-          框架學習目前Vue為主
-          -2019-12-8
-        </p>
+        <h3>keep it updated...</h3>
+        <p v-html="myTxt"></p>
       </div>
     </div>
-    <h3>最新消息</h3>
-    <div class="newsBox">
-      <ul id="nt-title">
-        <li>
-          <span onclick="openQAModel('1')">本身在銀行信用有瑕疵可以辦理嗎？</span>
-        </li>
-        <li>
-          <span onclick="openQAModel('2')">有車子可是想借錢，要向誰借呢？</span>
-        </li>
-        <li>
-          <span onclick="openQAModel('3')">申請貸款人需要有什麼條件呢？</span>
-        </li>
-        <li>
-          <span onclick="openQAModel('4')">汽車貸款有什麼優點？</span>
-        </li>
-        <li>
-          <span onclick="openQAModel('5')">借二胎房貸，需要提供什麼資訊？</span>
-        </li>
-        <li>
-          <span onclick="openQAModel('6')">什麼狀況會需要申辦信用貸款?</span>
-        </li>
-      </ul>
-    </div>
-    <div class="serviceBox">
-      <h3 class="typewrite" data-period="3500" data-type="[ '3大服務','快速審核' ]"></h3>
-      <div class="info mt-2 d-flex">
-        <span>信用借貸</span>
-        <span>汽車借貸</span>
-        <span>資金周轉</span>
-      </div>
-      <div class="infotxt">
-        實際貸款條件，仍以銀行提供之產品為準，且每一顧客實際之年百分率仍以其個別貸款產品及授信條件而有所不同。
-        歡迎聯繫我們專業的服務團隊來為您解答。
-      </div>
-    </div>
+
+    <h2>
+      <span></span>
+      <span>作品介紹</span>
+      <span></span>
+    </h2>
   </div>
 </template>
 <script>
-// import imgs from "../../modelData/aboutMeImgs";
+import content from "../modelData/content";
+import imgs from "../modelData/aboutMeImgs";
 // import $ from "jquery";
 
 export default {
   name: "vprofile",
   data() {
-    return {};
+    return {
+      myTxt: content.txt,
+      headImg: imgs[0],
+      headImg2: imgs[2]
+    };
   }
 };
+// setTimeout(()=>{
+//   $("#headImg").attr("src",headImg);
+// },1000)
+
+// ~async function() {
+// var index = 0;
+// const delay = t => {
+//   // 先撰寫一個等待的 function
+//   return new Promise(resolve => {
+//     setTimeout(resolve, t);
+//   });
+// };
+
+// for (let i = 0; i < imgs.length; i++) {
+//   let imgDom = $("#headImg");
+//   imgDom.attr("src", imgs[index]);
+//   index++;
+//   await delay(4000);
+//   if (index == imgs.length - 1) {
+//     i =0 ;
+//     index = 0;
+//   }
+// }
+// }();
 </script>
 
 <style lang="scss" scoped>
@@ -89,26 +84,27 @@ $grayBackGroung : #DBDFE6;
 
   .imgsAndTxt {
     margin: 0.75rem 0;
+    padding-bottom: 1.5rem;
     display: flex;
     justify-content: flex-start;
     .imgs {
-      flex: 2 0 unset;
+      flex: 0 0 360px;
       padding: 0rem;
       overflow: hidden;
       img {
-        padding: 0rem 2rem;
-        max-width: 400px;
+        width: 100%;
+        padding: 0rem 1.5rem;
         margin: auto;
       }
     }
     .txt {
-      flex: 1 0 30%;
+      flex: 1 0 350px;
       text-align: left;
       padding: 1rem;
       background: rgba(255, 255, 255, 0.3);
       p {
-        padding: 4px 0;
-        line-height: 1.7;
+        padding: 0.5rem 0;
+        line-height: 1.4;
       }
     }
   }
@@ -118,6 +114,7 @@ $grayBackGroung : #DBDFE6;
     font-weight: bold;
     padding: 0px 0.5rem;
     text-align: left;
+    font-weight: 600;
     border-left: 12px solid transparent;
     border-image: 12
       repeating-linear-gradient(

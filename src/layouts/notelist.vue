@@ -6,14 +6,19 @@
     </p>
     <ul>
       <li v-for="(item,index) in notelist" :key="item.id">
-        <router-link :to="item.url" class="flexbox">
-          <strong class="stime">{{timeTrans(item.mIndex)}} {{item.year}}</strong>
-          <img class="imgIcon" :src="item.img" alt />
-          <span v-if="!isMobile">{{item.title}}</span>
-          <span v-if="isMobile">{{item.title.substring(0,12)+"..."}}</span>
-          <span class="tags" v-for="tag in rowTagMappingArr[index]" :key="tag.id">
-            <strong v-html="tag.Icon"></strong>
-          </span>
+        <router-link :to="item.url">
+          <div class="imgBox">
+            <img :src="item.img" alt />
+          </div>
+          <div class="txtBox">
+            <br/>
+            <h2 v-if="!isMobile">{{item.title}}</h2>
+            <strong class="stime"></strong>{{item.cratetime}}<br/>
+            <span v-if="isMobile">{{item.title.substring(0,12)+"..."}}</span>
+            <span v-for="tag in rowTagMappingArr[index]" :key="tag.id">
+              <strong v-html="tag.Icon"></strong>
+            </span>
+          </div>
         </router-link>
       </li>
     </ul>
@@ -46,7 +51,7 @@ export default {
       notelist: notes,
       rowTagMappingArr: rowTagMappingArr,
       tagsArr: tagsArr,
-      isMobile:window.innerWidth<768?true:false
+      isMobile: window.innerWidth < 768 ? true : false
     };
   },
   methods: {
@@ -71,7 +76,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .page {
   width: 100%;
   text-align: left;
@@ -94,18 +99,51 @@ export default {
   padding: 10px;
   border-radius: 15px;
 }
+
+.page ul {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
 .page li {
-  width: 45%;
+  flex: 0 0 30%;
   margin: 15px auto;
   text-align: left;
   border-bottom: 1px solid #fff;
+  display: flex;
+  justify-content: flex-start;
 }
-.page li img {
+
+.page li a {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page li .imgBox {
+  width: 100%;
+  max-height: 200px;
   display: inline;
-  max-height: 30px;
   vertical-align: text-bottom;
   padding: 0 10px;
+  overflow: hidden;
+  img {
+    min-height: 200px;
+    width: 100%;
+  }
 }
+
+.page{
+  .txtBox{
+    line-height: 1.5;
+    h2{
+      font-weight: 600;
+      word-wrap:break-word;
+    }
+  }
+}
+
 .tags i {
   position: relative;
   left: 20px;
@@ -117,7 +155,6 @@ export default {
 }
 
 @media only screen and (max-width: 768px) {
-
   .titleTag {
     width: 100%;
   }

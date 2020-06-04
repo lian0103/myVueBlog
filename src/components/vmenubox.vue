@@ -65,10 +65,12 @@ export default {
 
 .sec ul{
   text-align: center;
+  height: 2rem;
 }
 
 .sec li {
   width: 24%;
+  font-size: 1rem;
   height: 2rem;
   line-height: 2rem;
   display: inline-block;
@@ -76,7 +78,8 @@ export default {
   cursor: pointer;
 }
 .sec li:hover {
-  background-color: #888888;
+  background-color: #fcee72;
+  font-size: 1.1rem;
 }
 
 .mainbox {

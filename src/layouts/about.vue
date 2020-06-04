@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import vprofile from "../components/vitems/vprofile.vue";
+import vprofile from "../components/vprofile.vue";
 export default {
   data() {
     return {
