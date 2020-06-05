@@ -1,17 +1,18 @@
 <template>
   <div class="page">
-    <h1>hello</h1>
     <router-link class="btn_back" to="/notelist">
       <i class="fas fa-long-arrow-alt-left"></i>回上層
     </router-link>
     <img class="pimg" :src="thisNote.img" alt />
     <div class="pbox">
+      <markdown-it-vue-light class="md-body" :content="thisNote.title" />
       <div class="ptitle">{{thisNote.title}}</div>
       <div class="ptagicons">
         標籤：
         <span v-bind:key="icon.id" v-for="icon in thisIconTags" v-html="icon.Icon+icon.name"></span>
       </div>
-      <div class="pcontent" v-html="thisNote.txt"></div>
+      <!-- <div class="pcontent" v-html="thisNote.txt"></div> -->
+      <markdown-it-vue-light class="md-body" :content="thisNote.txt" />
       <div class="pills">
         <a target="_blank" :href="thisNote.relateLink" v-if="thisNote.relateLink!=''">#連結</a>
         <span>{{thisNote.cratetime}}</span>
@@ -23,14 +24,20 @@
 
 <script>
 import notelist from "../modelData/note.js";
+import MarkdownItVueLight from 'markdown-it-vue/dist/markdown-it-vue-light.umd.min.js';
+import 'markdown-it-vue/dist/markdown-it-vue-light.css';
 
 export default {
   data() {
     return {
       thisNote: {},
+      content:'',
       thisName: "",
       thisIconTags: []
     };
+  },
+  components:{
+    MarkdownItVueLight    
   },
   created() {
     this.thisName = this.$route.params.name;
