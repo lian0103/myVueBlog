@@ -3,45 +3,60 @@
     <router-link class="btn_back" to="/lifelist">
       <i class="fas fa-long-arrow-alt-left"></i>回上層
     </router-link>
-    <div class="imgbox">
-      <div class="imgboxleft">
-        <img class="pimg" :src="thisNote.img" alt />
-      </div>
-      <div class="imgboxright" v-if="thisNote.imgs.length != 0">
-        <img v-for="item in thisNote.imgs" :src="item" :key="item" alt="">
-      </div>
-    </div>
+    <img class="pimg" :src="thisNote.img" alt />
     <div class="pbox">
       <div class="ptitle">{{thisNote.title}}</div>
       <div class="ptagicons">
         標籤：
         <span v-bind:key="icon.id" v-for="icon in thisIconTags" v-html="icon.Icon+icon.name"></span>
       </div>
-      <div class="pcontent" v-html="thisNote.txt"></div>
+      <div class="pcontent" v-if="content==''" v-html="thisNote.txt"></div>
+      <markdown-it-vue-light v-for=" (item,index) in content" :key="index" class="md-body" :content="item" :options="options" />
       <div class="pills">
         <a target="_blank" :href="thisNote.relateLink" v-if="thisNote.relateLink!=''">#連結</a>
         <span>{{thisNote.cratetime}}</span>
       </div>
     </div>
+    <div id="disqus_thread"></div>
   </div>
 </template>
 
 <script>
 import notelist from "../modelData/life.js";
+import MarkdownItVueLight from "markdown-it-vue/dist/markdown-it-vue-light.umd.min.js";
+import "markdown-it-vue/dist/markdown-it-vue-light.css";
 
 export default {
   data() {
     return {
       thisNote: {},
+      content: "",
       thisName: "",
-      thisIconTags: []
+      thisIconTags: [],
+      options: {
+        markdownIt: {
+          linkify: true
+        },
+        linkAttributes: {
+          attrs: {
+            target: "_blank",
+            rel: "noopener"
+          }
+        }
+      }
     };
+  },
+  components: {
+    MarkdownItVueLight
   },
   created() {
     this.thisName = this.$route.params.name;
     notelist.rowdata.map(item => {
       if (item.enTitle == this.thisName) {
         this.thisNote = item;
+        if(typeof item.txt == "object"){
+          this.content = item.txt;
+        }
       }
     });
     var tags = notelist.tags;
@@ -56,7 +71,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .page {
   display: flex;
   flex-direction: column;
@@ -64,27 +79,13 @@ export default {
   align-items: center;
   position: relative;
   padding-top: 25px;
+  h1 {
+    font-size: 2rem;
+  }
 }
-.imgbox {
-  display: flex;
+.pimg {
   max-width: 60%;
-  flex-direction: column;
 }
-
-.imgboxleft{
-  flex-grow: 2;
-  padding: 0 15px;
-}
-
-.imgboxright{
-  display: flex;
-}
-.imgboxright img{
-  padding: 15px;
-  max-width: 50%;
-  flex-grow: 2;
-}
-
 .pbox {
   padding: 0.75rem;
   width: 80%;
@@ -125,12 +126,13 @@ export default {
   border-radius: 25px;
   background-color: #edf2f7;
 }
+
 @media only screen and (max-width: 768px) {
   .btn_back {
     top: 0;
     left: -5%;
   }
-  .imgbox {
+  .pimg {
     max-width: 90%;
   }
   .pbox {
@@ -146,10 +148,6 @@ export default {
   .pcontent {
     font-size: 1.1rem;
     line-height: 1.7rem;
-  }
-
-  .imgboxright img{
-    max-height: 200px;
   }
 }
 </style>

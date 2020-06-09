@@ -2,17 +2,23 @@
   <div class="page">
     <p class="titleTag">
       標籤：
-      <span v-for="tag in tagsArr" :key="tag.id" v-html="tag.Icon+tag.name"></span>
+      <span v-for="tag in tagsArr" :key="tag.id" v-html="tag.Icon+tag.name" @click="()=>{handleFilter(tag.name)}"></span>
     </p>
     <ul>
-      <li v-for="(item,index) in lifelist" :key="item.id">
-        <router-link :to="item.url" class="flexbox">
-          <strong>{{timeTrans(item.mIndex)}} {{item.year}}</strong>
-          <img class="imgIcon" :src="item.img" alt />
-          <span>{{item.title}}</span>
-          <span class="tags" v-for="tag in rowTagMappingArr[index]" :key="tag.id">
-            <strong v-html="tag.Icon"></strong>
-          </span>
+      <li v-for="(item,index) in notelist" :key="item.id">
+        <router-link :to="item.url">
+          <div class="imgBox">
+            <img :src="item.img" alt />
+          </div>
+          <div class="txtBox">
+            <br/>
+            <h2 v-if="!isMobile">{{item.title}}</h2>
+            <strong class="stime"></strong>{{item.cratetime}}<br/>
+            <span v-if="isMobile">{{item.title.substring(0,12)+"..."}}</span>
+            <span v-for="tag in rowTagMappingArr[index]" :key="tag.id">
+              <strong v-html="tag.Icon"></strong>
+            </span>
+          </div>
         </router-link>
       </li>
     </ul>
@@ -20,17 +26,17 @@
 </template>
 
 <script>
-import lifelist from "../modelData/life.js";
-var lifelistR = lifelist.rowdata.reverse();
-var tagsArr = lifelist.tags;
+import notelist from "../modelData/life.js";
+var notes = notelist.rowdata.reverse();
+var tagsArr = notelist.tags;
 var rowTagMappingArr = [];
 
-for (var i = 0; i < lifelistR.length; i++) {
+for (var i = 0; i < notes.length; i++) {
   var tempArr = [];
-  for (var j = 0; j < lifelistR[i].tags.length; j++) {
+  for (var j = 0; j < notes[i].tags.length; j++) {
     var obj = {};
     for (var k = 0; k < tagsArr.length; k++) {
-      if (tagsArr[k].name == lifelistR[i].tags[j]) {
+      if (tagsArr[k].name == notes[i].tags[j]) {
         obj = tagsArr[k];
       }
     }
@@ -42,13 +48,27 @@ for (var i = 0; i < lifelistR.length; i++) {
 export default {
   data() {
     return {
-      lifelist: lifelistR,
-      iconTags: lifelist.tags,
+      notelist: notes,
       rowTagMappingArr: rowTagMappingArr,
-      tagsArr: tagsArr
+      tagsArr: tagsArr,
+      isMobile: window.innerWidth < 768 ? true : false
     };
   },
   methods: {
+    handleFilter(name){
+      let newData = [] ;
+
+      notes.forEach( item => {
+        item.tags.forEach( tag => {
+          if(tag === name){
+            newData.push(item);
+          }
+        })
+      });
+      
+      this.notelist = newData;
+
+    },
     timeTrans: function(mIndex) {
       let month = [
         "JAN",
@@ -70,7 +90,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .page {
   width: 100%;
   text-align: left;
@@ -78,10 +98,11 @@ export default {
 }
 .titleTag {
   width: 80%;
-  margin: auto;
+  margin-left: 2rem;
   padding: 20px 0;
   text-align: left;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
 }
 .titleTag span {
   margin-right: 20px;
@@ -89,9 +110,54 @@ export default {
 .imgIcon {
   display: inline-block;
   max-width: 75px;
+  width: 100%;
   padding: 10px;
   border-radius: 15px;
 }
+
+.page ul {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.page li {
+  flex: 0 0 30%;
+  margin: 15px auto;
+  text-align: left;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.page li a {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page li .imgBox {
+  max-height: 200px;
+  display: inline;
+  vertical-align: text-bottom;
+  padding: 0 10px;
+  overflow: hidden;
+  img {
+    min-height: 200px;
+    width: 100%;
+  }
+}
+
+.page{
+  .txtBox{
+    line-height: 1.5;
+    h2{
+      font-weight: 600;
+      word-wrap:break-word;
+    }
+  }
+}
+
 .tags i {
   position: relative;
   left: 20px;
@@ -101,21 +167,31 @@ export default {
 .flexbox span {
   white-space: nowrap;
 }
+
 @media only screen and (max-width: 768px) {
+  .titleTag {
+    width: 100%;
+  }
+
   .page {
     font-size: 1rem;
   }
   .page li {
+    width: 100%;
+    margin: unset;
     margin-top: 25px;
   }
   .flexbox {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    /* justify-content: flex-start;
+    align-items: center; */
   }
   .flexbox strong {
     width: 50px;
     min-width: 50px;
+  }
+  .flexbox img {
+    flex-grow: 2;
   }
 
   .flexbox span {

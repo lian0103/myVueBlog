@@ -5,14 +5,13 @@
     </router-link>
     <img class="pimg" :src="thisNote.img" alt />
     <div class="pbox">
-      <markdown-it-vue-light class="md-body" :content="thisNote.title" />
       <div class="ptitle">{{thisNote.title}}</div>
       <div class="ptagicons">
         標籤：
         <span v-bind:key="icon.id" v-for="icon in thisIconTags" v-html="icon.Icon+icon.name"></span>
       </div>
-      <!-- <div class="pcontent" v-html="thisNote.txt"></div> -->
-      <markdown-it-vue-light class="md-body" :content="thisNote.txt" />
+      <div class="pcontent" v-if="content==''" v-html="thisNote.txt"></div>
+      <markdown-it-vue-light v-for=" (item,index) in content" :key="index" class="md-body" :content="item" :options="options" />
       <div class="pills">
         <a target="_blank" :href="thisNote.relateLink" v-if="thisNote.relateLink!=''">#連結</a>
         <span>{{thisNote.cratetime}}</span>
@@ -24,26 +23,40 @@
 
 <script>
 import notelist from "../modelData/note.js";
-import MarkdownItVueLight from 'markdown-it-vue/dist/markdown-it-vue-light.umd.min.js';
-import 'markdown-it-vue/dist/markdown-it-vue-light.css';
+import MarkdownItVueLight from "markdown-it-vue/dist/markdown-it-vue-light.umd.min.js";
+import "markdown-it-vue/dist/markdown-it-vue-light.css";
 
 export default {
   data() {
     return {
       thisNote: {},
-      content:'',
+      content: "",
       thisName: "",
-      thisIconTags: []
+      thisIconTags: [],
+      options: {
+        markdownIt: {
+          linkify: true
+        },
+        linkAttributes: {
+          attrs: {
+            target: "_blank",
+            rel: "noopener"
+          }
+        }
+      }
     };
   },
-  components:{
-    MarkdownItVueLight    
+  components: {
+    MarkdownItVueLight
   },
   created() {
     this.thisName = this.$route.params.name;
     notelist.rowdata.map(item => {
       if (item.enTitle == this.thisName) {
         this.thisNote = item;
+        if(typeof item.txt == "object"){
+          this.content = item.txt;
+        }
       }
     });
     var tags = notelist.tags;
@@ -66,8 +79,8 @@ export default {
   align-items: center;
   position: relative;
   padding-top: 25px;
-  h1{
-    font-size:2rem;
+  h1 {
+    font-size: 2rem;
   }
 }
 .pimg {
@@ -79,17 +92,19 @@ export default {
   margin: auto;
 }
 .ptitle {
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 10px 0;
+  font-size: 2rem;
+  font-weight: 900;
+  padding: 12px 0;
+  letter-spacing: .1rem;
+  text-shadow: 1px 1px 1px #aa0;
 }
 .pcontent {
   line-height: 1.3rem;
   font-size: 0.85rem;
 }
 .ptagicons {
-  font-size: 0.8rem;
-  padding: 1rem 0;
+  font-size: 1.2rem;
+  padding: 1.2rem 0;
 }
 .btn_back {
   width: 120px;
@@ -114,25 +129,30 @@ export default {
   background-color: #edf2f7;
 }
 
-@media only screen and (max-width: 768px) {
+.md-body{
+  font-size: 1.2rem;
 
-  .btn_back{
-    top:0;
+}
+
+@media only screen and (max-width: 768px) {
+  .btn_back {
+    top: 0;
     left: -5%;
   }
   .pimg {
     max-width: 90%;
   }
-  .pbox{
+  .pbox {
     padding: 0.5rem;
     width: 95%;
     font-size: 1.4rem;
   }
-  .ptitle{
+  .ptitle {
     font-size: 1.4rem;
   }
 
-  .ptagicons,.pcontent{
+  .ptagicons,
+  .pcontent {
     font-size: 1.1rem;
     line-height: 1.7rem;
   }

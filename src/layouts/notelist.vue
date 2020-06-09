@@ -2,7 +2,7 @@
   <div class="page">
     <p class="titleTag">
       標籤：
-      <span v-for="tag in tagsArr" :key="tag.id" v-html="tag.Icon+tag.name"></span>
+      <span v-for="tag in tagsArr" :key="tag.id" v-html="tag.Icon+tag.name" @click="()=>{handleFilter(tag.name)}"></span>
     </p>
     <ul>
       <li v-for="(item,index) in notelist" :key="item.id">
@@ -55,6 +55,20 @@ export default {
     };
   },
   methods: {
+    handleFilter(name){
+      let newData = [] ;
+
+      notes.forEach( item => {
+        item.tags.forEach( tag => {
+          if(tag === name){
+            newData.push(item);
+          }
+        })
+      });
+      
+      this.notelist = newData;
+
+    },
     timeTrans: function(mIndex) {
       let month = [
         "JAN",
@@ -84,10 +98,11 @@ export default {
 }
 .titleTag {
   width: 80%;
-  margin: auto;
+  margin-left: 2rem;
   padding: 20px 0;
   text-align: left;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
 }
 .titleTag span {
   margin-right: 20px;
@@ -122,7 +137,6 @@ export default {
 }
 
 .page li .imgBox {
-  width: 100%;
   max-height: 200px;
   display: inline;
   vertical-align: text-bottom;

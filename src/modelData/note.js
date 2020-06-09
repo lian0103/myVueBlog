@@ -73,18 +73,20 @@ export default {
             "enTitle": "asyncAndAwait",
             "year": "2020",
             "mIndex": "1",
-            "txt": `
-                //承諾物件(Promise) 非同步(Async)  計時器(setTimeout)  等待(await)
-                //常使用於有呼叫第三方API時 中間會有等待期間(pedding) js就會分支出一個不同步的任務
-                
+            "txt": [
+            `
+                Promise物件  非同步(Async)  計時器(setTimeout)  等待(await)
+                常使用於有呼叫第三方API時 中間會有等待期間(pedding) js就會分支出一個不同步的任務
+        
                 function doSomethingAsync (delatTime){
                     return new Promise((resolve,reject) => {
                         resolve('pass promise resolve')
                         reject('pass promise reject');
                     })
                 }
-                
-                //可使用Promise的API then方法可以接收來自resolve和reject兩種情況傳入的參數
+
+                可使用Promise的API then方法可以接收來自resolve和reject兩種情況傳入的參數
+
                 console.log('start');
                 let result = doSomethingAsync().then((res) =>{
                     console.log(res);
@@ -95,11 +97,82 @@ export default {
                 // start
                 // step
                 // pass promise resolve
-            `,
+            `
+            ],
             "img": require('./imgs/async.jpg'),
             "relateLink": "https://www.oxxostudio.tw/articles/201908/js-async-await.html",
             "tags": ["js"],
             "url": "/notes/2020/06/03/asyncAndAwait"
+        },
+        {
+            "id": 7,
+            "title": "react useContext",
+            "cratetime": "2020-06-09",
+            "enTitle": "useContext_1",
+            "year": "2020",
+            "mIndex": "1",
+            "txt": [
+            `
+            關於useContext, 在官網定義是:
+                "接收一個 context object（React.createContext 的回傳值）
+                並回傳該 context 目前的值。Context 目前的值是取決於由上層 component 
+                距離最近的 <MyContext.Provider> 的 value prop。"
+
+            我理解的白話文是:
+            使用useContext 這個hook method可以得到一個由最靠近的context層的資料;
+            Context是一個由React物件提供的資料物件,它的構成如下:
+            React——Context
+                            |——Provider
+                            |
+                            |——Consumer
+            
+            依據定義,可以透過"距離最近的 <MyContext.Provider> 的 value prop"
+            將自己組成的資料放入這個Context物件當中;而<MyContext.Consumer>則是
+            取得Context資料的其中一種方式。
+
+            //index.js
+            在component MyApp外包一層InfoContext
+            並依需求可把infoDataObj組起來指給屬性value
+            <InfoContext.Provider value={infoDataObj}>
+                <MyApp />
+            </InfoContext.Provider>
+
+            取值用法一
+            //MyApp.js
+            Consumer去找尋最靠近的Provider.value 再指給需要的組件
+            即可從子組件的props中獲取乘載value的infoContextData
+            <InfoContext.Consumer>
+                {(value) => { 
+                    <Header infoContextData={value}/>
+                    <MyContent infoContextData={value}/>
+                    <Footer infoContextData={value}/>
+                }}
+            <InfoContext.Consumer/>
+
+            取值用法二
+            //MyContent.js
+            使用useContext和這個Context所搭配的方法 
+            React ——Context
+                    |
+                    |——useContext
+
+            useContext回傳的即是官方定義指的"接收一個 context object"
+            const infoDataObj = React.useContext(Context);
+
+
+            ----
+            end
+            ----
+
+
+            //下一篇寫搭配HOC設計的Context使用
+
+            `
+            ],
+            "img": require('./imgs/react2.png'),
+            "relateLink": "https://zh-hant.reactjs.org/docs/hooks-reference.html#usecontext",
+            "tags": ["js","react"],
+            "url": "/notes/2020/06/09/useContext_1"
         }
     ],
     "tags": [
@@ -122,6 +195,11 @@ export default {
             "id": 4,
             "name": "setting",
             "Icon": "<i class='fas fa-cog'></i>"
+        },
+        {
+            "id": 5,
+            "name": "react",
+            "Icon": "<i class='fab fa-react'></i>"
         }
     ]
 }
