@@ -138,9 +138,11 @@ export default {
   .btn_back {
     top: 0;
     left: -5%;
+    font-size: 1.1rem;
   }
   .pimg {
     max-width: 90%;
+    padding: 1rem 0;
   }
   .pbox {
     padding: 0.5rem;

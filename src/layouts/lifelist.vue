@@ -12,9 +12,8 @@
           </div>
           <div class="txtBox">
             <br/>
-            <h2 v-if="!isMobile">{{item.title}}</h2>
-            <strong class="stime"></strong>{{item.cratetime}}<br/>
-            <span v-if="isMobile">{{item.title.substring(0,12)+"..."}}</span>
+            <h2>{{item.title}}</h2>
+            <strong class="stime">{{item.cratetime}}</strong><br/>
             <span v-for="tag in rowTagMappingArr[index]" :key="tag.id">
               <strong v-html="tag.Icon"></strong>
             </span>
@@ -148,12 +147,12 @@ export default {
   }
 }
 
-.page{
-  .txtBox{
+.page {
+  .txtBox {
     line-height: 1.5;
-    h2{
+    h2 {
       font-weight: 600;
-      word-wrap:break-word;
+      word-wrap: break-word;
     }
   }
 }
@@ -171,15 +170,35 @@ export default {
 @media only screen and (max-width: 768px) {
   .titleTag {
     width: 100%;
+    margin: 0;
+    line-height: 1.6;
+    padding: 10px 0;
+    font-size: 1.1rem;
   }
 
   .page {
     font-size: 1rem;
+    ul {
+      flex-direction: column;
+    }
+    .txtBox {
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      strong{
+        font-weight: 300;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+      }
+    }
   }
+
   .page li {
     width: 100%;
     margin: unset;
     margin-top: 25px;
+    padding: 0.75rem 0;
   }
   .flexbox {
     display: flex;

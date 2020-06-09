@@ -1,14 +1,18 @@
 {
-  "name": "my-app",
+  "name": "vue-blog",
+  "homepage": "https://lian0103.github.io/vueBlog2019/",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.4.3",
+    "gh-pages": "^3.0.0",
     "gsap": "^3.0.1",
     "jquery": "^3.4.1",
     "markdown-it-highlight": "^0.2.0",

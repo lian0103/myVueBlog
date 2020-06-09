@@ -11,7 +11,7 @@
         <img id="headImg" :src="headImg2" alt />
       </div>
       <div class="txt">
-        <h3>keep it updated...</h3>
+        <h3></h3>
         <p v-html="myTxt"></p>
       </div>
     </div>

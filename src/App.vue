@@ -257,7 +257,7 @@ div::-webkit-scrollbar-thumb {
   }
 
   html {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 </style>

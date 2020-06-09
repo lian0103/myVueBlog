@@ -88,10 +88,22 @@ export default {
 }
 
 @media only screen and (max-width: 767px) {
+  .menubox{
+    padding: 1rem;
+  }
+
+  .sec ul{
+    display: flex;
+  }
+
   .sec li {
-    font-size: .8rem;
-    height: auto;
+    font-size: .85rem;
+    height: 30px;
     line-height: 1.2;
+  }
+  .sec li:hover {
+    background-color: unset;
+    font-size: .85rem;
   }
 }
 
