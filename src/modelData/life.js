@@ -58,25 +58,6 @@ export default {
         "drink"
       ],
       "url": "/lifelist/2020/02/02/review2019story-1"
-    },
-    {
-      "id": 4,
-      "title": "2020 轉入react之路...",
-      "enTitle": "learningReact",
-      "cratetime": "2020-06-01",
-      "year": "2020",
-      "mIndex": "1",
-      "txt": `第一次記錄~~<br>
-        在多人共同開發/使用共用元件目前會傳遞一個屬性後判斷流程,再依照需求去加入js、scss的調整部分<br>
-        避免影響到原本有使用的地方!!
-      `,
-      "img": require('./imgs/react.png'),
-      "imgs": [],
-      "relateLink": "https://zh-hant.reactjs.org/",
-      "tags": [
-        "sport"
-      ],
-      "url": "/lifelist/2020/06/01/learningReact"
     }
   ],
   "tags": [

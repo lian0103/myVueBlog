@@ -88,7 +88,7 @@ export default {
 }
 .pbox {
   padding: 0.75rem;
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 .ptitle {
@@ -131,7 +131,10 @@ export default {
 
 .md-body{
   font-size: 1.2rem;
+}
 
+.markdown-body pre{
+  background-color: rgb(94, 94, 172);
 }
 
 @media only screen and (max-width: 768px) {

@@ -88,7 +88,7 @@ export default {
 }
 .pbox {
   padding: 0.75rem;
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 .ptitle {

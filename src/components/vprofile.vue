@@ -38,30 +38,6 @@ export default {
     };
   }
 };
-// setTimeout(()=>{
-//   $("#headImg").attr("src",headImg);
-// },1000)
-
-// ~async function() {
-// var index = 0;
-// const delay = t => {
-//   // 先撰寫一個等待的 function
-//   return new Promise(resolve => {
-//     setTimeout(resolve, t);
-//   });
-// };
-
-// for (let i = 0; i < imgs.length; i++) {
-//   let imgDom = $("#headImg");
-//   imgDom.attr("src", imgs[index]);
-//   index++;
-//   await delay(4000);
-//   if (index == imgs.length - 1) {
-//     i =0 ;
-//     index = 0;
-//   }
-// }
-// }();
 </script>
 
 <style lang="scss" scoped>
@@ -105,6 +81,7 @@ $grayBackGroung : #DBDFE6;
       p {
         padding: 0.5rem 0;
         line-height: 1.4;
+        font-size: 1rem;
       }
     }
   }

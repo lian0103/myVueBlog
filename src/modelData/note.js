@@ -75,28 +75,35 @@ export default {
             "mIndex": "1",
             "txt": [
             `
-                Promise物件  非同步(Async)  計時器(setTimeout)  等待(await)
-                常使用於有呼叫第三方API時 中間會有等待期間(pedding) js就會分支出一個不同步的任務
-        
-                function doSomethingAsync (delatTime){
-                    return new Promise((resolve,reject) => {
-                        resolve('pass promise resolve')
-                        reject('pass promise reject');
-                    })
-                }
+            Promise物件 x 非同步(Async) x 計時器(setTimeout) x 等待(await)
 
-                可使用Promise的API then方法可以接收來自resolve和reject兩種情況傳入的參數
+            組合常使用於有呼叫第三方API時,中間會有等待期間(pedding),js就會分支出一個不同步的任務,
+            搭配Promise提供的then方法可以處理非同步的執行程序,並接收來自resolve和reject兩種情況傳入的參數。
 
-                console.log('start');
-                let result = doSomethingAsync().then((res) =>{
-                    console.log(res);
-                });
-                console.log('step')
-                
-                // console結果
-                // start
-                // step
-                // pass promise resolve
+            
+            //製作需要有非同步的任務function
+            function doSomethingAsync (delatTime){
+                return new Promise((resolve,reject) => {
+                    resolve('pass promise resolve')
+                    reject('pass promise reject');
+                })
+            }
+
+
+            //執行
+            console.log('start');
+            
+            doSomethingAsync().then((res) =>{
+                console.log(res);
+            });
+
+            console.log('step')
+            
+            console結果
+            start
+            step
+            pass promise resolve
+            
             `
             ],
             "img": require('./imgs/async.jpg'),
@@ -105,13 +112,13 @@ export default {
             "url": "/notes/2020/06/03/asyncAndAwait"
         },
         {
-            "id": 7,
-            "title": "react useContext",
-            "cratetime": "2020-06-09",
-            "enTitle": "useContext_1",
-            "year": "2020",
-            "mIndex": "1",
-            "txt": [
+        "id": 7,
+        "title": "react useContext",
+        "cratetime": "2020-06-09",
+        "enTitle": "useContext_1",
+        "year": "2020",
+        "mIndex": "1",
+        "txt": [
             `
             關於useContext, 在官網定義是:
                 "接收一個 context object（React.createContext 的回傳值）
@@ -122,9 +129,9 @@ export default {
             使用useContext 這個hook method可以得到一個由最靠近的context層的資料;
             Context是一個由React物件提供的資料物件,它的構成如下:
             React——Context
-                            |——Provider
-                            |
-                            |——Consumer
+                        |——Provider
+                        |
+                        |——Consumer
             
             依據定義,可以透過"距離最近的 <MyContext.Provider> 的 value prop"
             將自己組成的資料放入這個Context物件當中;而<MyContext.Consumer>則是
@@ -140,7 +147,7 @@ export default {
             取值用法一
             //MyApp.js
             Consumer去找尋最靠近的Provider.value 再指給需要的組件
-            即可從子組件的props中獲取乘載value的infoContextData
+            即可從子組件的props中獲取infoContextData(裝載從Comsumer吃到的value)
             <InfoContext.Consumer>
                 {(value) => { 
                     <Header infoContextData={value}/>
@@ -151,21 +158,18 @@ export default {
 
             取值用法二
             //MyContent.js
-            使用useContext和這個Context所搭配的方法 
+            使用useContext和消費這個Context的資料 
             React ——Context
-                    |
-                    |——useContext
+                |
+                |——useContext
 
-            useContext回傳的即是官方定義指的"接收一個 context object"
+            useContext回傳的即是Context的資料,也就是官方定義指的"接收一個 context object"
+
             const infoDataObj = React.useContext(Context);
 
-
             ----
-            end
+            下一篇寫搭配HOC設計的Context使用
             ----
-
-
-            //下一篇寫搭配HOC設計的Context使用
 
             `
             ],
