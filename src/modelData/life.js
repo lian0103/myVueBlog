@@ -58,6 +58,24 @@ export default {
         "drink"
       ],
       "url": "/lifelist/2020/02/02/review2019story-1"
+    },
+    {
+      "id": 4,
+      "title": "台南,食!",
+      "enTitle": "TainanEat",
+      "cratetime": "2020-06-13",
+      "year": "2020",
+      "mIndex": "5",
+      "txt": "",
+      "img": '',
+      "imgs": [
+      ],
+      "relateLink": "",
+      "tags": [
+        "drink",
+        "foods"
+      ],
+      "url": "/lifelist/2020/06/13/TainanEat"
     }
   ],
   "tags": [

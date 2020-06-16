@@ -72,7 +72,7 @@ export default {
             "cratetime": "2020-06-03",
             "enTitle": "asyncAndAwait",
             "year": "2020",
-            "mIndex": "1",
+            "mIndex": "5",
             "txt": [
             `
             Promise物件 x 非同步(Async) x 計時器(setTimeout) x 等待(await)
@@ -117,7 +117,7 @@ export default {
         "cratetime": "2020-06-09",
         "enTitle": "useContext_1",
         "year": "2020",
-        "mIndex": "1",
+        "mIndex": "5",
         "txt": [
             `
             關於useContext, 在官網定義是:
@@ -177,7 +177,36 @@ export default {
             "relateLink": "https://zh-hant.reactjs.org/docs/hooks-reference.html#usecontext",
             "tags": ["js","react"],
             "url": "/notes/2020/06/09/useContext_1"
-        }
+        },
+        {
+            "id": 8,
+            "title": "軟體工程師的五種被動收入",
+            "cratetime": "2020-06-16",
+            "enTitle": "passive-income",
+            "year": "2020",
+            "mIndex": "5",
+            "txt": [
+                `
+                source from youtube
+
+                1.寫blog 
+                累積粉絲和流量
+
+                2.接案
+                開發和維護
+
+                3.賣plugin template
+                製作功能模組到平台給其他開發者或一般人使用
+
+                4.Sass(solfware as a service)
+                找到大概有1000人願意買單的小眾市場 like民宿網 呼叫水電師傅 呼叫小黃...等
+                `
+                ],
+                "img": require('./imgs/income.png'),
+                "relateLink": "https://www.youtube.com/watch?v=llfINt0OS6M",
+                "tags": ["income"],
+                "url": "/notes/2020/06/16/passive-income"
+            }
     ],
     "tags": [
         {
@@ -204,6 +233,11 @@ export default {
             "id": 5,
             "name": "react",
             "Icon": "<i class='fab fa-react'></i>"
-        }
+        },
+        {
+            "id": 6,
+            "name": "income",
+            "Icon": "<i class='fas fa-piggy-bank'></i>"
+        },
     ]
 }
